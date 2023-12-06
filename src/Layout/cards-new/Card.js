@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Card({front, handleCardFront, back, handleCardBack}) {
+export default function Card({front, handleCardFrontChange, back, handleCardBackChange}) {
   return (
     <>
         <div className="form-group">
@@ -10,7 +10,7 @@ export default function Card({front, handleCardFront, back, handleCardBack}) {
                 name="front"
                 className="form-control"
                 rows="3"
-                onChange={handleCardFront}
+                onChange={handleCardFrontChange}
                 value={front}
             />
         </div>
@@ -21,7 +21,7 @@ export default function Card({front, handleCardFront, back, handleCardBack}) {
                 name="back"
                 className="form-control"
                 rows="3"
-                onChange={handleCardBack}
+                onChange={handleCardBackChange}
                 value={back}
             />
         </div>

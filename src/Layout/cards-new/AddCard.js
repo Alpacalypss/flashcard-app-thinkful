@@ -9,7 +9,7 @@ export default function AddCard() {
     const [deck, setDeck] = useState({});
     const [front, setFront] = useState('');
     const [back, setBack] = useState('');
-    const {deckId} = useParams().deckId
+    const {deckId} = useParams()
 
     //Event handlers
     function handleCardFrontChange(event) {

@@ -8,7 +8,7 @@ export default function Study() {
     const [deck, setDeck] = useState({});
     const [cards, setCards] = useState([]);
     const [currentCard, setCurrentCard] = useState({})
-    const {deckId} = useParams().deckId;
+    const {deckId} = useParams();
 
     //API fetch for decks, calling the set of cards for the deck, and setting indexed card value at index 0
     useEffect(() => {

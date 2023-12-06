@@ -9,7 +9,7 @@ export default function DeckScreen() {
   const [deck, setDeck] = useState({});
   const [cards, setCards] = useState([]);
 
-  const {deckId} = useParams().deckId;
+  const {deckId} = useParams();
   const { url } = useRouteMatch();
 
   // loading the specified deck from the API

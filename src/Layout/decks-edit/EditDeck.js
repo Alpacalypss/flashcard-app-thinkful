@@ -8,7 +8,7 @@ export default function EditDeck() {
     const [deckName, setDeckName] = useState("");
     const [deckDescription, setDeckDescription] = useState("");
     const history = useHistory();
-    const {deckId} = useParams().deckId;
+    const {deckId} = useParams();
 
     //API fetch, with name and description set updates and abortController
     useEffect(() => {
@@ -34,7 +34,7 @@ export default function EditDeck() {
       id: deckId,
       name: deckName,
       description: deckDescription
-    }).then((updatedDeck) => history.push(`/decks/${updatedDeck.id}`));
+    }).then((updatedDeck) => history.push(`/decks/${updatedDeck.deckId}`));
   };
 
     return (

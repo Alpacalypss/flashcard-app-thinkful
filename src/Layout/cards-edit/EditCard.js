@@ -11,8 +11,7 @@ export default function EditCard() {
     const [front, setFront] = useState('');
     const [back, setBack] = useState('');
 
-    const {cardId} = useParams().cardId
-    const {deckId} = useParams().deckId
+    const {cardId, deckId} = useParams()
     const history = useHistory();
 
     useEffect(() => {
@@ -54,7 +53,7 @@ export default function EditCard() {
             <form onSubmit={submitHandler}>
                 <Card front={front} handleCardFrontChange={handleCardFrontChange} back={back} handleCardBackChange={handleCardBackChange} />
                 <EditCancelButton deckId={deckId} />
-                <button type="submit" className="btn btn-Success">
+                <button type="submit" className="btn btn-success">
                     <i className="bi bi-check-circle-fill"></i>Submit
                 </button>
             </form>
