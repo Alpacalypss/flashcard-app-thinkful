@@ -7,7 +7,7 @@ export default function DeckInfo({ deckName, deckDescription, deckId, cards, url
     const history = useHistory();
 
     return (
-      <div>
+      <>
         <h2>{deckName}</h2>
         <p>{deckDescription}</p>
         <div className="d-flex mb-4">
@@ -41,9 +41,8 @@ export default function DeckInfo({ deckName, deckDescription, deckId, cards, url
   
         <div>
           <h3>Cards</h3>
-          {/* Renders the cards in the deck and the edit card and delete card buttons */}
           <DeckCards cards={cards} deckId={deckId} url={url} />
         </div>
-      </div>
+      </>
     );
   }

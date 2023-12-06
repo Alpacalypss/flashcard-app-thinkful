@@ -5,6 +5,7 @@ import { deleteDeck } from '../../utils/api';
 export default function DeckDeleteButton({deckId}) {
     const history = useHistory();
 
+    //click handler with confirmation message
     const handleTrashClick = () => {
         if (
           window.confirm("Delete this deck? You will not be able to recover it.")

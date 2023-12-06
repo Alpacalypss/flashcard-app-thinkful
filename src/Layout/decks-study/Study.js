@@ -10,6 +10,7 @@ export default function Study() {
     const [currentCard, setCurrentCard] = useState({})
     const {deckId} = useParams().deckId;
 
+    //API fetch for decks, calling the set of cards for the deck, and setting indexed card value at index 0
     useEffect(() => {
         async function fetchDeck() {
           const abortController = new AbortController();

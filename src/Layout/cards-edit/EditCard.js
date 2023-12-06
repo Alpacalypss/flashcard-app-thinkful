@@ -16,6 +16,7 @@ export default function EditCard() {
     const history = useHistory();
 
     useEffect(() => {
+        //Calling API for card and deck data with abortControllers
         async function fetchDeck() {
             const abortController = new AbortController();
             const response = await readDeck(deckId, abortController.signal)
@@ -32,13 +33,14 @@ export default function EditCard() {
         fetchCards();
     }, [deckId, cardId])
 
-    //event handlers for clicks
+    //event handlers for setting front and back of card faces
     function handleCardFrontChange(event) {
         setFront(event.target.value)
     }
     function handleCardBackChange(event) {
         setBack(event.target.value)
     }
+    //handler for submit button being pushed with appropriate reroute
     function submitHandler(event) {
         event.preventDefault();
         updateCard({...existingCard, sideA: front, sideB: back})

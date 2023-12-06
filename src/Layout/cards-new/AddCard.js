@@ -20,6 +20,7 @@ export default function AddCard() {
     }
 
     useEffect(() => {
+        //API call for decks, with abort controller, and deckId param
         async function fetchDecks() {
             const abortController = new AbortController();
             const response = await readDeck(deckId, abortController.signal)
@@ -40,7 +41,7 @@ export default function AddCard() {
     //if deck is properly fetched save a new card form, otherwise returns a Loading message
     if(deck.name) {
         return (
-            <div>
+            <>
                 <AddCardNav deckName={deck.name} deckId={deckId} />
                 <h3>{deck.name}: Add Card</h3>
                 <form onSubmit={saveCard}>
@@ -50,7 +51,7 @@ export default function AddCard() {
                         <i className="bi bi-cloud-upload-fill"></i>Save  
                     </button> 
                 </form>
-            </div>
+            </>
         )
     }
     return "Loading..."

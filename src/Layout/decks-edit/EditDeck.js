@@ -10,7 +10,7 @@ export default function EditDeck() {
     const history = useHistory();
     const {deckId} = useParams().deckId;
 
-    //API fetch, with name and description updaters
+    //API fetch, with name and description set updates and abortController
     useEffect(() => {
         async function loadDeck() {
           const abortController = new AbortController();
@@ -21,7 +21,7 @@ export default function EditDeck() {
         loadDeck();
     }, [deckId]);
 
-    //Event handlers for change and submission
+    //Event handlers for change and submission with useHistory reroute on click
     function handleDeckNameChange(event) {
         setDeckName(event.target.value)
     }

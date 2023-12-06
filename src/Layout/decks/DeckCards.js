@@ -5,8 +5,7 @@ import { useHistory } from 'react-router-dom';
 export default function DeckCards({ cards, deckId, url }) {
     const history = useHistory();
 
-    /* When the user clicks the "Delete" button associated with a card, this warning message will show.
-    If the user clicks "OK", the card is deleted using deleteCard() */
+    //Confirmation handler for deleting a card, using the imported deleteCard function
     const handleDeleteCardClick = (card) => {
       if (
         window.confirm("Delete this card? You will not be able to recover it.")
@@ -48,8 +47,7 @@ export default function DeckCards({ cards, deckId, url }) {
               className="btn btn-danger"
               onClick={() => handleDeleteCardClick(card)}
             >
-              {/* The anchor element will trigger the page to refresh after the card has been deleted.
-              This makes it so that the refreshed page will no longer display the deleted card. */}
+              {/* Rerenders the page to update and not include deleted card */}
               <a href={url} className="text-white">
                 <span className="oi oi-trash" />
               </a>

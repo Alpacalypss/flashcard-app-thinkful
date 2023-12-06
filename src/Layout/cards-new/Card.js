@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Card({front, handleCardFront, back, handleCardBack}) {
   return (
-    <div>
+    <>
         <div className="form-group">
             <label htmlFor="front">Front</label>
             <textarea
@@ -25,6 +25,6 @@ export default function Card({front, handleCardFront, back, handleCardBack}) {
                 value={back}
             />
         </div>
-    </div>
+    </>
   )
 }
