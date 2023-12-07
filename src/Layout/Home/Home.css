@@ -1,14 +1,9 @@
-.home {
+.deck-card {
     display: flex;
-    align-items: center;
     flex-direction: column;
     text-wrap: wrap;
     background-color: gray; 
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-.deck-card {
     background-color: rgb(52, 226, 226);
-    margin-bottom: 10px;
 }
