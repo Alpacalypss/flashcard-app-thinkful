@@ -12,13 +12,13 @@ export default function EditDeck() {
 
     //API fetch, with name and description set updates and abortController
     useEffect(() => {
-        async function loadDeck() {
+        async function fetchDeck() {
           const abortController = new AbortController();
             const response = await readDeck(deckId, abortController.signal)
             setDeckName(response.name)
             setDeckDescription(response.description)
         }
-        loadDeck();
+        fetchDeck();
     }, [deckId]);
 
     //Event handlers for change and submission with useHistory reroute on click
@@ -34,7 +34,7 @@ export default function EditDeck() {
       id: deckId,
       name: deckName,
       description: deckDescription
-    }).then((updatedDeck) => history.push(`/decks/${updatedDeck.deckId}`));
+    }).then((updatedDeck) => history.push(`/decks/${updatedDeck.id}`));
   };
 
     return (

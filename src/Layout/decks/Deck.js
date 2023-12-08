@@ -14,13 +14,13 @@ export default function DeckScreen() {
 
   // loading the specified deck from the API
   useEffect(() => {
-    async function loadDeck() {
+    async function fetchDeck() {
       const abortController = new AbortController();
       const response = await readDeck(deckId, abortController.signal);
-      setDeck(response);
-      setCards(response.cards);
+      setDeck(response)
+      setCards(response.cards)
     }
-    loadDeck();
+    fetchDeck()
   }, [deckId]);
 
   // If the deck has been fetched from the API, the breadcrumb nav bar and deck info will display

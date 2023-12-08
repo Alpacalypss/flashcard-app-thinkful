@@ -8,8 +8,8 @@ import {readDeck, readCard, updateCard} from '../../utils/api/index'
 export default function EditCard() {
     const [deck, setDeck] = useState({});
     const [existingCard, setExistingCard] = useState({});
-    const [front, setFront] = useState('');
-    const [back, setBack] = useState('');
+    const [frontOfCard, setFrontOfCard] = useState('');
+    const [backOfCard, setBackOfCard] = useState('');
 
     const {cardId, deckId} = useParams()
     const history = useHistory();
@@ -25,8 +25,8 @@ export default function EditCard() {
             const abortController = new AbortController();
             const response = await readCard(cardId, abortController.signal)
             setExistingCard(response)
-            setFront(response.front)
-            setBack(response.back)
+            setFrontOfCard(response.front)
+            setBackOfCard(response.back)
         }
         fetchDeck();
         fetchCards();
@@ -34,15 +34,15 @@ export default function EditCard() {
 
     //event handlers for setting front and back of card faces
     function handleCardFrontChange(event) {
-        setFront(event.target.value)
+        setFrontOfCard(event.target.value)
     }
     function handleCardBackChange(event) {
-        setBack(event.target.value)
+        setBackOfCard(event.target.value)
     }
     //handler for submit button being pushed with appropriate reroute
     function submitHandler(event) {
         event.preventDefault();
-        updateCard({...existingCard, sideA: front, sideB: back})
+        updateCard({...existingCard, front: frontOfCard, back: backOfCard})
         .then((updatedCard) => history.push(`/decks/${updatedCard.deckId}`))
     }
 
@@ -51,7 +51,7 @@ export default function EditCard() {
             <EditCardNav deckName={deck.name} deckId={deckId} cardId={cardId} />
             <h3>Edit Card</h3>
             <form onSubmit={submitHandler}>
-                <Card front={front} handleCardFrontChange={handleCardFrontChange} back={back} handleCardBackChange={handleCardBackChange} />
+                <Card frontOfCard={frontOfCard} handleCardFrontChange={handleCardFrontChange} backOfCard={backOfCard} handleCardBackChange={handleCardBackChange} />
                 <EditCancelButton deckId={deckId} />
                 <button type="submit" className="btn btn-success">
                     <i className="bi bi-check-circle-fill"></i>Submit
